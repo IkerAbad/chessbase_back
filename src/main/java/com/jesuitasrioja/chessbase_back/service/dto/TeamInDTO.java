@@ -6,5 +6,6 @@ import lombok.Data;
 @Data
 public class TeamInDTO {
     private String name;
-    private int numberOfParticipants;
+    private String nPlayers;
+    private String competition;
 }

@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @Entity
@@ -12,9 +13,25 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private String username;
+    private String name;
+    private String lastname;
     private String email;
+    private String username;
     private String password;
-    private String fullName;
-    private LocalDateTime createdDate;
+
+    @ManyToMany (cascade = CascadeType.PERSIST)
+    @JoinTable(
+            name = "exercise_user",
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName
+                    = "id"),
+            inverseJoinColumns = @JoinColumn(name = "exercise_id",
+                    referencedColumnName = "id"))
+    private List<Exercise> exercises;
+
+    @ManyToOne
+    @JoinColumn(name = "team_id", referencedColumnName = "id")
+    private Team team;
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.REMOVE)
+    private Language language;
 }

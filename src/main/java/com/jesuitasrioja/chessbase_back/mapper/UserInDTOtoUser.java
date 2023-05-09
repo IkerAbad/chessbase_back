@@ -12,11 +12,12 @@ public class UserInDTOtoUser implements IMapper<UserInDTO, User>{
     @Override
     public User map(UserInDTO in) {
         User user = new User();
+        user.setName(in.getName());
+        user.setLastname(in.getLastname());
+        user.setEmail(in.getEmail());
         user.setUsername(in.getUsername());
         user.setPassword(in.getPassword());
-        user.setEmail(in.getEmail());
-        user.setFullName(in.getFullName());
-        user.setCreatedDate(LocalDateTime.now());
+
         return user;
     }
 }
