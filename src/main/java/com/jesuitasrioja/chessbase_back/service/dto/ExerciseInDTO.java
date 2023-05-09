@@ -5,5 +5,6 @@ import lombok.Data;
 @Data
 public class ExerciseInDTO {
     private String title;
-    private String description;
+    private String creator;
+    private String nPlayers;
 }

@@ -14,10 +14,8 @@ public class TeamInDTOtoTeam implements IMapper<TeamInDTO, Team>{
     public Team map(TeamInDTO in) {
         Team team = new Team();
         team.setName(in.getName());
-        team.setNumberOfParticipants(in.getNumberOfParticipants());
-        team.setCreatedDate(LocalDateTime.now());
-
-        team.setCreator(new User());
+        team.setNPlayers(in.getNPlayers());
+        team.setCompetition(in.getCompetition());
 
         return team;
     }

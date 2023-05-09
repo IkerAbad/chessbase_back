@@ -16,10 +16,8 @@ public class ExerciseInDTOtoExercise implements IMapper<ExerciseInDTO, Exercise>
         Exercise exercise = new Exercise();
 
         exercise.setTitle(in.getTitle());
-        exercise.setDescription(in.getDescription());
-        exercise.setCreatedDate(LocalDateTime.now());
-
-        exercise.setCreator(new User());
+        exercise.setCreator(in.getCreator());
+        exercise.setNPlayers(in.getNPlayers());
 
         return exercise;
     }
