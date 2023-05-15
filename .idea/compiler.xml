@@ -8,11 +8,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="todoapp" />
+        <module name="chessbase_back" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="chessbase_back" target="17" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
