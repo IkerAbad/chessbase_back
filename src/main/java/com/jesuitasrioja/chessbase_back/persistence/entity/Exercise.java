@@ -22,7 +22,7 @@ public class Exercise {
     private String creator;
     private String nPlayers;
 
-    @ManyToMany(mappedBy = "exercise")
+    @ManyToMany(mappedBy = "exercises")
     private List<User> users;
 
 }
