@@ -31,11 +31,24 @@ public class UserService {
         return this.repository.findAll();
     }
 
-    public void deleteById(Integer id){
+    public void deleteById(Long id){
         Optional<User> optionalTask = this.repository.findById(id);
         if(optionalTask.isEmpty()){
             throw new ChessbaseExceptions("Task not found", HttpStatus.NOT_FOUND);
         }
         this.repository.deleteById(id);
+    }
+
+    public User updateUserById(User idUser) {
+        Optional<User> user= null;
+        try{
+            user= repository.findById(user.get().getId());
+            if (user.isPresent()){
+                repository.save(idUser);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return user.get();
     }
 }
