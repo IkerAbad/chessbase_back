@@ -6,6 +6,7 @@ import com.jesuitasrioja.chessbase_back.service.TeamService;
 import com.jesuitasrioja.chessbase_back.service.UserService;
 import com.jesuitasrioja.chessbase_back.service.dto.TeamInDTO;
 import com.jesuitasrioja.chessbase_back.service.dto.UserInDTO;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,8 +32,13 @@ public class UserController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable("id") Integer id){
+    public ResponseEntity<Void> delete(@PathVariable("id") Long id){
         this.userService.deleteById(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping
+    public ResponseEntity<User> updateUser(@RequestBody User user){
+        return new ResponseEntity<>(userService.updateUserById(user), HttpStatus.OK);
     }
 }
