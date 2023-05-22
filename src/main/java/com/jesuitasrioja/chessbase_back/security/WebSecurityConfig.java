@@ -83,7 +83,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         CorsConfiguration cc = new CorsConfiguration();
         cc.setAllowedHeaders(Arrays.asList("Origin,Accept", "X-Requested-With", "Content-Type", "Access-Control-Request-Method", "Access-Control-Request-Headers", "Authorization"));
         cc.setExposedHeaders(Arrays.asList("Access-Control-Allow-Origin", "Access-Control-Allow-Credentials", "Access-Control-Allow-Headers: *"));
-        cc.setAllowedOrigins(List.of("*"));
+        cc.setAllowedOrigins(List.of("/*"));
         cc.setAllowedMethods(Arrays.asList("GET", "POST", "OPTIONS", "PUT", "PATCH", "DELETE"));
         cc.addAllowedOriginPattern("*");
         cc.setMaxAge(Duration.ZERO);
@@ -103,6 +103,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .mvcMatchers(HttpMethod.GET, "/users/**").permitAll()
                 .mvcMatchers(HttpMethod.GET, "/teams/**").permitAll()
                 .mvcMatchers(HttpMethod.GET, "/exercises/**").permitAll()
+                .mvcMatchers(HttpMethod.POST, "/exercises/**").permitAll()
+                .mvcMatchers(HttpMethod.DELETE, "/exercises/**").permitAll()
                 .anyRequest().authenticated();
         http.addFilterBefore(authenticationJwtTokenFilter(),
                 UsernamePasswordAuthenticationFilter.class);
