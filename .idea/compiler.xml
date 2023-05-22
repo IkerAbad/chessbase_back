@@ -14,7 +14,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="chessbase_back" options="-parameters" />
+      <module name="chessbase_back" options="-parameters --add-modules java.base" />
       <module name="todoapp" options="-parameters" />
     </option>
   </component>
