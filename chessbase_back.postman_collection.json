@@ -9,11 +9,21 @@
 		{
 			"name": "createExercise",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJJa2VyIiwiaWF0IjoxNjg0NDA3ODMwLCJleHAiOjE2ODQ0OTQyMzB9.fBK54-8uOTwtfmsV3v3Wui6eHtv0Li3Xnbbn36zxO9s_d4dE0iXnH8zuGR8upE8RxyHULH4T7NzrfSJqINhm5w",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"title\":\"Primer ejercicio\",\r\n\"creator\":\"Iker Fernández Antón\",\r\n\"users\": \"\",\r\n\"nplayers\":\"30\"}",
+					"raw": "{\"title\":\"Primer ejercicio\",\r\n\"creator\":\"Iker Fernández Antón\",\r\n\"nplayers\":\"30\"}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -21,14 +31,15 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/exercises",
+					"raw": "http://localhost:8080/exercises/",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"exercises"
+						"exercises",
+						""
 					]
 				}
 			},
@@ -80,7 +91,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"name\":\"Equipo Calahorra\",\r\n\"competition\":\"Modalidad Clásica\",\r\n\"users\": \"\",\r\n\"nplayers\":\"200\"}",
+					"raw": "{\"name\":\"Equipo Calahorra\",\r\n\"competition\":\"Modalidad Clásica\",\r\n\"users\": {\r\n    \r\n},\r\n\"nplayers\":\"40\"}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -147,7 +158,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"name\":\"Iker\",\r\n\"lastname\":\"Fernández Antón\",\r\n\"users\": {},\r\n\"email\":\"iker@gmail.com\",\r\n\"username\": \"ikerf\",\r\n\"password\":\"ikerf\",\r\n\"exercises\": {},\r\n\"team\":{},\r\n\"language\": \"\"}",
+					"raw": "{\"name\":\"Iker\",\r\n\"lastname\":\"Fernández Antón\",\r\n\"users\": {\r\n\r\n},\r\n\"email\":\"iker@gmail.com\",\r\n\"username\": \"ikerf\",\r\n\"password\":\"ikerf\",\r\n\"exercises\": {\r\n\r\n},\r\n\"team\":{\r\n    \r\n},\r\n\"language\": \"\"}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -202,6 +213,64 @@
 					"path": [
 						"users",
 						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"Iker\",\r\n    \"password\":\"IkerIker\",\r\n    \"email\":\"iker@gmail.com\",\r\n    \"role\":[\"admin\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"Iker\",\r\n    \"password\":\"IkerIker\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/signin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"signin"
 					]
 				}
 			},
