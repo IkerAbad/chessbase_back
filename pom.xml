@@ -9,12 +9,13 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.jesuitasrioja</groupId>
-	<artifactId>todoapp</artifactId>
+	<artifactId>chessbase_back</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>todoapp</name>
-	<description>Demo project for Spring Boot</description>
+	<name>chessbase_back</name>
+	<description>Backend de Chessbase con Spring Boot</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>17</java.version>
+		<lombok.version>1.18.30</lombok.version>
 	</properties>
 	<dependencies>
 		<dependency>
